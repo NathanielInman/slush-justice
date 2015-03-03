@@ -1,0 +1,69 @@
+{
+  "name": "slush-justice",
+  "version": "1.0.0",
+  "description": "Slush generator JUSTICE makes programming ES6+ video games easy!",
+  "license": "MIT",
+  "author": {
+    "name": "Nathaniel Inman",
+    "email": "nate@theoestudio.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NathanielInman/slush-justice.git"
+  },
+  "main": "slushfile.js",
+  "scripts": {},
+  "keywords": [
+    "slushgenerator",
+    "esnext",
+    "module",
+    "jade",
+    "stylus",
+    "transform",
+    "preprocessor",
+    "syntax",
+    "codegen",
+    "justice",
+    "javascript",
+    "ecmascript",
+    "games",
+    "es5",
+    "es6",
+    "es7",
+    "ES.next",
+    "harmony",
+    "compiler",
+    "transpiler",
+    "gulp",
+    "build"
+  ],
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-conflict": "^0.3.0",
+    "gulp-filter": "^2.0.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-install": "^0.2.0",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-template": "^3.0.0",
+    "iniparser": "^1.0.5",
+    "del": "^1.1.1",
+    "inquirer": "^0.8.0"
+  },
+  "devDependencies": {
+    "gulp-bump": "^0.2.2",
+    "gulp-git": "^1.0.1",
+    "gulp-jshint": "^1.9.2",
+    "gulp-tag-version": "^1.2.1",
+    "jshint-stylish": "^1.0.1",
+    "gulp-jsvalidate": "^2.0.0",
+    "semver": "^4.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/NathanielInman/slush-justice/issues"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/NathanielInman/slush-justice"
+}

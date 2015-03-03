@@ -1,0 +1,41 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= appVersion %>",
+  "description": "<%= appDescription %>",
+  "main": "Gulpfile.js",
+  "author": {
+    "name": "<%= authorName %>",
+    "email": "<%= authorEmail %>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/<%= userName %>/<%= name %>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<%= userName %>/<%= name %>/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/<%= userName %>/<%= name %>",
+  "dependencies": {
+    "amd-optimize": "^0.4.3",
+    "browser-sync": "^2.2.1",
+    "gulp-babel": "^4.0.0",
+    "gulp-add-src": "^0.2.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-insert": "^0.4.0",
+    "gulp-order": "^1.1.1",
+    "gulp-jade": "^1.0.0",
+    "gulp-jshint": "^1.9.2",
+    "gulp-minify-css": "^0.5.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-stylus": "^2.0.1",
+    "gulp-uglify": "^1.1.0",
+    "jshint-stylish": "^1.0.1"<% if (stylesPlugin == 'nib') { %>,
+    "nib": "^1.1.0"<% } else if (stylesPlugin == 'kouto swiss') { %>,
+    "kouto-swiss": "^0.11.8"<% } %>
+  }
+}
