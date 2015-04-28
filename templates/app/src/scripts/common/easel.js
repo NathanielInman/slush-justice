@@ -1,3 +1,4 @@
+//jshint ignore: start
 export var Easel=(function(a) {
     if(!!window.CanvasRenderingContext2D){Easel.activated=true;}else{return false;}
     W = window;
