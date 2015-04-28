@@ -1,9 +1,8 @@
-slush-justice
-=================
+# slush-justice
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-justice.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-justice) [![dependency Status](https://david-dm.org/NathanielInman/slush-justice/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-justice) [![devDependency Status](https://david-dm.org/NathanielInman/slush-justice/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-justice#info=devDependencies)
 
-Slush generator **JUSTICE** makes programming ES6+ video games easy!
+Slush generator **JUSTICE** makes programming with ES6 modules easy!
 
 - **Modules** : *Use ES6 modules with no additional configuration*
 - **Browser Sync** : *Live reloading system*
@@ -14,10 +13,15 @@ Slush generator **JUSTICE** makes programming ES6+ video games easy!
   - **Nib** : **[optional]** *Choosing this plugin gives you plenty of extensions*
   - **Kouto Swiss** : **[optional]** *Alternative plugin that gives tons of additional features*
 - **Uglify** : *Minify both CSS and JS to make your client payloads small and quick to load*
-  - *concats all stylus files into one css*
-  - *concats all scripts together into one file*
 
-## Installation + Usage ##
+## Table of Contents
+
+* [Installation](#installation)
+* [File Structure](#file-structure)
+* [Notes](#notes)
+* [Thanks](#thanks)
+
+## Installation
 
 Simply install [slush][2], as well as this generator globally:
 
@@ -36,42 +40,55 @@ gulp
 
 And just like that, you're on the way to making your app!
 
-## File Structure ##
+## File Structure
+
 ```
 project
 ├─dist
-│ ├─app.min.js
-│ ├─app.min.css
-│ └─ index.html
+│ ├ <────(assets copied here on compile)
+│ ├─scripts
+│ │ ├─ require.min.js
+│ │ └─ runtime.min.js
+│ ├─styles
+│ │ ├─ example1.css
+│ │ └─ example2.css
+│ ├─ a.html
+│ └─ b.html
 ├─ src
+│ ├─assets
+│ │ └─ (imgs/html/pdf/other go here)
 │ ├─scripts
 │ │ ├─common
 │ │ │ ├─r1
-│ │ │ │ ├─a.js
-│ │ │ │ └─b.js
+│ │ │ │ ├─ a.js
+│ │ │ │ └─ b.js
 │ │ │ └─r2
-│ │ │   ├─c.js
+│ │ │   ├─ c.js
 │ │ │   ├─r2c
-│ │ │   │ ├─f.js
-│ │ │   │ └─e.js
-│ │ │   └─d.js
-│ │ └─engine.js
-│ ├─app.js
+│ │ │   │ ├─ f.js
+│ │ │   │ └─ e.js
+│ │ │   └─ d.js
+│ │ └─ engine.js
+│ ├─ app.js
 │ ├─styles
-│ │ ├─boilerplate.styl
-│ │ └─main.styl
+│ │ ├─partials
+│ │ │ ├─ foo.styl
+│ │ │ └─ bar.styl
+│ │ ├─ example1.styl
+│ │ └─ example2.styl
 │ └─views
 │   ├─partials
-│   │ ├─footer.jade
-│   │ ├─head.jade
-│   │ └─scripts.jade
-│   └─ index.jade
+│   │ ├─ _footer.jade
+│   │ ├─ _head.jade
+│   │ └─ _scripts.jade
+│   ├─ a.jade
+│   └─ b.jade
 ├─ gulpfile.js
 ├─ package.json
 └─ readme.md
 ```
 
-## Notes ##
+## Notes
 
 The boilerplate comes setup with the perspective of a video game developer, but
 can be easily transitioned into other avenues. One very basic library is included
@@ -91,7 +108,7 @@ extremely small library and prepares a few variables that I find very useful:
 * **Easel.background** : *color to flood the canvas with when it clears before redraw*
 * **Easel.redraw()** : *call this function to redraw the canvas. automatically called on resize.*
 
-## Thanks ##
+## Thanks
 
 This boilerplate of mine is just a combination of great tools, all credit goes to
 those who actually put in all the hard work to create them.

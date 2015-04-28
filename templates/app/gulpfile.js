@@ -3,9 +3,7 @@ var gulp = require('gulp'), // This streaming build system
     browserSync = require('browser-sync'), // Server & live reload system
     reload = browserSync.reload, // Ensure the event emitter is set
     stylus = require('gulp-stylus'), // CSS Pre-processor
-    <% if (stylesPlugin == 'nib') { %>nib = require('nib'),
-    <% } else if (stylesPlugin == 'kouto swiss') { %>ks = require('kouto-swiss'),
-    <% } %>
+    <% if (stylesPlugin == 'nib') { %>nib = require('nib'),<% } else if (stylesPlugin == 'kouto swiss') { %>ks = require('kouto-swiss'),<% } %>
     jade = require('gulp-jade'), // Template language for HTML5
     notify = require('gulp-notify'), // Give notification on updates
     babel = require('gulp-babel'), // Babel (formerly 6to5) ECMAScript transpiler
@@ -19,22 +17,19 @@ var gulp = require('gulp'), // This streaming build system
 
 // Styles - pre-process all styles and push the css to dist
 gulp.task('styles', function(){
-  return gulp.src('src/styles/*.styl')
-    .pipe(concat('app.min.styl'))
+  return gulp.src('src/styles/**/!(_)*.styl')
     .pipe(stylus({
-      <% if (stylesPlugin == 'nib') { %>use: nib(),
-      <% } else if (stylesPlugin == 'kouto swiss') { %>use: ks(),
-      <% } %>
+      <% if (stylesPlugin == 'nib') { %>use: nib(),<% } else if (stylesPlugin == 'kouto swiss') { %>use: ks(),<% } %>
       compress: true
     }))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/styles/'))
     .pipe(notify({ message: 'Stylus finished compiling to <%= file.relative %>.' }));
 }); //end 'styles' task
 
 // Jade - convert Jade to HTML
 gulp.task('jade', function(){
-  return gulp.src('src/views/*.jade')
+  return gulp.src('src/views/**/!(_)*.jade')
     .pipe(jade()) //compressed
     .pipe(gulp.dest('dist/'))
     .pipe(notify({ message: 'Jade finished compiling to <%= file.relative %>.' }));
@@ -58,21 +53,29 @@ gulp.task('scripts', function(){
     .pipe(notify({ message: 'Scripts finished compiling to <%= file.relative %>.' }));
 }); //end 'scripts' task
 
+// Assets - ensure root resource are moved to dist
+gulp.task('assets',function(){
+  return gulp.src('src/assets/**/*')
+    .pipe(gulp.dest('dist/'));
+}); //end 'assets' task
+
 // Adding all asynchronous build steps into one task
-gulp.task('build',['styles','jade','scripts']);
+gulp.task('build',['styles','jade','assets','scripts']);
 
 // The browser-sync task will start a server but not watch any files.
 gulp.task('browser-sync', ['build'], function(){
   browserSync({
     server:{
       baseDir: 'dist/'
-    },
-    port:3000
+    }
   });
 }); //end 'browser-sync' task
 
 // Watch
 gulp.task('watch', ['browser-sync'], function(){
+  // Watch all assets
+  gulp.watch('src/assets/**/*',['assets', reload]);
+
   // Watch stylus files
   gulp.watch('src/styles/**/*.styl', ['styles', reload]);
 
