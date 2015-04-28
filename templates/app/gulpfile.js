@@ -49,7 +49,7 @@ gulp.task('scripts', function(){
     .pipe(minifyjs())
     .pipe(concat('runtime.min.js'))
     .pipe(append('\nrequire(["app"]);'))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/scripts/'))
     .pipe(notify({ message: 'Scripts finished compiling to <%= file.relative %>.' }));
 }); //end 'scripts' task
 
