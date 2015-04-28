@@ -36,7 +36,7 @@ gulp
 
 And just like that, you're on the way to making your app!
 
-## Structure ##
+## File Structure ##
 ```
 project
 ├─dist
