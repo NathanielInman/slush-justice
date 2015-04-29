@@ -8,8 +8,7 @@ var gulp = require('gulp'), // This streaming build system
     notify = require('gulp-notify'), // Give notification on updates
     babel = require('gulp-babel'), // Babel (formerly 6to5) ECMAScript transpiler
     concat = require('gulp-concat'), // Concatenate files together
-    minifycss = require('gulp-minify-css'), // Make css smaller and more digestable
-    minifyjs = require('gulp-uglify'), // Make js smaller and more digestable
+    uglify = require('gulp-uglify'), // Make js smaller and more digestable
     jshint = require('gulp-jshint'), // Linter for javascript
     stylish = require('jshint-stylish'), // Makes jshints output pretty
     optimize = require('amd-optimize'), // Final step in building - optimizes modules
@@ -22,7 +21,6 @@ gulp.task('styles', function(){
       <% if (stylesPlugin == 'nib') { %>use: nib(),<% } else if (stylesPlugin == 'kouto swiss') { %>use: ks(),<% } %>
       compress: true
     }))
-    .pipe(minifycss())
     .pipe(gulp.dest('dist/styles/'))
     .pipe(notify({ message: 'Stylus finished compiling to <%= file.relative %>.' }));
 }); //end 'styles' task
@@ -46,7 +44,7 @@ gulp.task('scripts', function(){
       moduleIds: true
     }))
     .pipe(optimize('app'))
-    .pipe(minifyjs())
+    .pipe(uglify())
     .pipe(concat('runtime.min.js'))
     .pipe(append('\nrequire(["app"]);'))
     .pipe(gulp.dest('dist/scripts/'))
