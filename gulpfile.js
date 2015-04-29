@@ -17,7 +17,7 @@ var inc = function (importance) {
       importance)))i
     .pipe(tag())
     .on('end',function(){
-      this.pipe(git.push('oriign','master', {args: '--tags'}))
+      this.pipe(git.push('origin','master', {args: '--tags'}))
     });
     //.pipe(git.push('origin', 'master', {args: '--tags'}));
 };
