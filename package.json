@@ -1,6 +1,6 @@
 {
   "name": "slush-justice",
-  "version": "1.1.1",
+  "version": "1.1.0",
   "description": "Slush generator JUSTICE makes programming with ES6 modules easy!",
   "license": "MIT",
   "author": {
@@ -44,9 +44,7 @@
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-conflict": "^0.4.0",
-    "gulp-filter": "^2.0.2",
     "gulp-install": "^0.4.0",
-    "gulp-load-plugins": "^0.10.0",
     "gulp-rename": "^1.2.2",
     "gulp-template": "^3.0.0",
     "iniparser": "^1.0.5",
@@ -55,10 +53,7 @@
   "devDependencies": {
     "gulp-bump": "^0.3.0",
     "gulp-git": "^1.2.1",
-    "gulp-jshint": "^1.10.0",
     "gulp-tag-version": "^1.2.1",
-    "jshint-stylish": "^1.0.1",
-    "gulp-jsvalidate": "^2.0.0",
     "semver": "^4.3.3"
   },
   "bugs": {
