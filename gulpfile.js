@@ -5,9 +5,6 @@ var gulp     = require('gulp'),
     git      = require('gulp-git'),
     tag      = require('gulp-tag-version');
 
-gulp.task('update',function(){
-
-})
 var inc = function (importance) {
   return gulp.src(['./package.json'])
     .pipe(bump({type: importance}))
@@ -19,10 +16,9 @@ var inc = function (importance) {
     .on('end',function(){
       this.pipe(git.push('origin','master', {args: '--tags'}))
     });
-    //.pipe(git.push('origin', 'master', {args: '--tags'}));
 };
 
-/* Version bumping ------------------------------------------------------- */
+// Version bumping
 gulp.task('patch', function () { return inc('patch'); });
 gulp.task('feature', function () { return inc('minor'); });
 gulp.task('release', function () { return inc('major'); });
