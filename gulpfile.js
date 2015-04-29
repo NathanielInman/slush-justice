@@ -14,7 +14,7 @@ var inc = function (importance) {
     .pipe(gulp.dest('./'))
     .pipe(git.commit('Release v' + semver.inc(
       require(__dirname + '/package.json').version,
-      importance)))i
+      importance)))
     .pipe(tag())
     .on('end',function(){
       this.pipe(git.push('origin','master', {args: '--tags'}))
