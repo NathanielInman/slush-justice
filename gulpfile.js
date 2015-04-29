@@ -5,18 +5,24 @@ var gulp     = require('gulp'),
     git      = require('gulp-git'),
     tag      = require('gulp-tag-version');
 
+gulp.task('update',function(){
+
+})
 var inc = function (importance) {
   return gulp.src(['./package.json'])
     .pipe(bump({type: importance}))
     .pipe(gulp.dest('./'))
     .pipe(git.commit('Release v' + semver.inc(
       require(__dirname + '/package.json').version,
-      importance)))
+      importance)))i
     .pipe(tag())
-    .pipe(git.push('origin', 'master', {args: '--tags'}));
+    .on('end',function(){
+      this.pipe(git.push('oriign','master', {args: '--tags'}))
+    });
+    //.pipe(git.push('origin', 'master', {args: '--tags'}));
 };
 
 /* Version bumping ------------------------------------------------------- */
-gulp.task('patch', ['lint'], function () { return inc('patch'); });
-gulp.task('feature', ['lint'], function () { return inc('minor'); });
-gulp.task('release', ['lint'], function () { return inc('major'); });
+gulp.task('patch', function () { return inc('patch'); });
+gulp.task('feature', function () { return inc('minor'); });
+gulp.task('release', function () { return inc('major'); });
