@@ -1,29 +1,20 @@
-/* jshint -W079 */
-var gulp   = require('gulp'),
-    semver = require('semver'),
-    $      = require('gulp-load-plugins')();
+// Load plugins
+var gulp     = require('gulp'),
+    semver   = require('semver'),
+    bump     = require('gulp-bump'),
+    git      = require('gulp-git'),
+    tag      = require('gulp-tag-version');
 
 var inc = function (importance) {
   return gulp.src(['./package.json'])
-    .pipe($.bump({type: importance}))
+    .pipe(bump({type: importance}))
     .pipe(gulp.dest('./'))
-    .pipe($.git.commit('Release v' + semver.inc(
+    .pipe(git.commit('Release v' + semver.inc(
       require(__dirname + '/package.json').version,
       importance)))
-    .pipe($.tagVersion())
-    .pipe($.git.push('origin', 'master', {args: '--tags'}));
+    .pipe(tag())
+    .pipe(git.push('origin', 'master', {args: '--tags'}));
 };
-
-/* JS linting ------------------------------------------------------------ */
-gulp.task('lint', function () {
-  return gulp.src('./index.js')
-    .pipe($.jshint({
-      lookup: true
-    }))
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.jshint.reporter('fail'))
-    .pipe($.jsvalidate());
-});
 
 /* Version bumping ------------------------------------------------------- */
 gulp.task('patch', ['lint'], function () { return inc('patch'); });
