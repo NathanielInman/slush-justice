@@ -1,5 +1,5 @@
 # Deprecation
-Use [Slush Jugs](https://www.npmjs.com/package/slush-jugs) instead, this one is no longer maintained.
+Use [Slush Jugs](https://www.npmjs.com/package/slush-jugs) instead, this is no longer maintained.
 
 ## slush-justice
 
