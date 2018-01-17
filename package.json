@@ -50,12 +50,6 @@
     "iniparser": "^1.0.5",
     "inquirer": "^0.8.2"
   },
-  "devDependencies": {
-    "gulp-bump": "^0.3.0",
-    "gulp-git": "^1.2.1",
-    "gulp-tag-version": "^1.2.1",
-    "semver": "^4.3.3"
-  },
   "bugs": {
     "url": "https://github.com/NathanielInman/slush-justice/issues"
   },
