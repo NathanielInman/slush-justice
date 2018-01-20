@@ -37,13 +37,9 @@ cd appName
 slush justice
 ```
 
-to install dependencies...
-
-```
-npm install
-```
-
-to run the project and listen for changes and auto-update...
+follow the instructions and it will set everything up for you and install
+dependencies. After it's finished to run the project and have it automatically
+listen to the code for changes and update merely run the command:
 
 ```
 npm start
