@@ -109,9 +109,6 @@ gulp.task('default', function (done) {
         }))
         .pipe(conflict('./'))
         .pipe(gulp.dest('./'))
-        .pipe(install())
-        .on('finish', function () {
-          del(dirs, done);
-        });
+        .pipe(install());
     });
 });
