@@ -1,7 +1,4 @@
-# Deprecation
-Use [Slush Jugs](https://www.npmjs.com/package/slush-jugs) instead, this is no longer maintained.
-
-## slush-justice
+# slush-justice
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-justice.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-justice) [![dependency Status](https://david-dm.org/NathanielInman/slush-justice/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-justice) [![devDependency Status](https://david-dm.org/NathanielInman/slush-justice/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-justice#info=devDependencies)
 
