@@ -1,6 +1,6 @@
 import template from './helpIndex.pug';
 
-export const HelpIndex = {
+export const helpIndex = {
   template: template(),
   data(){
     return {

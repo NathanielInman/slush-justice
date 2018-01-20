@@ -20,16 +20,6 @@ const router = new VueRouter({routes});
 // initialize the application
 export const app = new Vue({
   router,
-  created(){
-    let user = localStorage.getItem('user');
-
-    if(!user){
-      this.$router.push('/login');
-    }else{
-      this.user = JSON.parse(user);
-      this.$router.push('/');
-    }//end if
-  },
   data(){
     return {menuActive: 0};
   }
