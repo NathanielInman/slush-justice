@@ -55,19 +55,6 @@ var outputCustomizationWanted = function (answers) {
 
 // If they don't specify specifics, we need to have defaults ready
 var handleDefaults = function (answers) {
-  if (!answers.sourceCustomization) {
-    answers.sourceBase = defaults.source.base;
-    answers.sourceStyles = defaults.source.styles;
-    answers.sourceScripts = defaults.source.scripts;
-    answers.sourceEsnextExt = defaults.source.esnextExtension;
-    answers.sourcePartials = defaults.source.partials;
-    answers.sourceTemplates = defaults.source.templates;
-  }
-  if (!answers.outputCustomization) {
-    answers.outputBase = defaults.output.base;
-    answers.outputStyles = defaults.output.styles;
-    answers.outputScripts = defaults.output.scripts;
-  }
   return answers;
 };
 
