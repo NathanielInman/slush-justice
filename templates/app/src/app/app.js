@@ -12,15 +12,13 @@ Vue.use(VueRouter);
 Vue.use(Buefy);
 
 // Prepare the main template
-document.querySelector('app').innerHTML=template();
+Vue.component('app',{
+  template: template(),
+  data(){ return {menuActive: 0}; }
+});
 
 // initialize the routes
 const router = new VueRouter({routes});
 
 // initialize the application
-export const app = new Vue({
-  router,
-  data(){
-    return {menuActive: 0};
-  }
-}).$mount('app');
+export const app = new Vue({el: '#<%= name %>', router});

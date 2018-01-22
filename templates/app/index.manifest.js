@@ -27,7 +27,7 @@ export const index = {
     }
   ],
   body: [
-    {tag: 'app'},
+    {tag: 'app', id: '<%= name %>'},
     {
       tag: 'script',
       innerHTML: ''+
