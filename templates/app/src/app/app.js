@@ -11,14 +11,17 @@ import template from './app.pug';
 Vue.use(VueRouter);
 Vue.use(Buefy);
 
-// Prepare the main template
-Vue.component('app',{
-  template: template(),
-  data(){ return {menuActive: 0}; }
-});
-
 // initialize the routes
 const router = new VueRouter({routes});
 
 // initialize the application
-export const app = new Vue({el: '#<%= name %>', router});
+export const app = new Vue({
+  el: '#<%= name %>',
+  router,
+  components: {
+    app: {
+      template: template(),
+      data(){ return {menuActive: 0}; }
+    }
+  }
+});
