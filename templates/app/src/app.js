@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import 'buefy/lib/buefy.css'
+import 'buefy/dist/buefy.css'
 import './app.styl';
 import Vue from 'vue/dist/vue.common';
 import VueRouter from 'vue-router';
@@ -21,7 +21,9 @@ export const app = new Vue({
   components: {
     app: {
       template: template(),
-      data(){ return {menuActive: 0}; }
+      data(){
+        return {menuActive: 0};
+      }
     }
   }
 });

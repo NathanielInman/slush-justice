@@ -29,12 +29,6 @@ export default {
     new CopyWebpack([
       {from:'src/assets',to:''}
     ]),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: false,
-      compress: {warnings: false},
-      output: {comments: false},
-      sourceMap: true
-    }),
     new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(mode)}),
     new webpack.LoaderOptionsPlugin({
       options: {stylus: {use: [poststylus(['autoprefixer'])]}}
