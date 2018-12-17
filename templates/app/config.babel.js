@@ -1,48 +1,52 @@
-import webpack       from 'webpack';
-import autoprefixer  from 'autoprefixer';
-import poststylus    from 'poststylus';
-import BrowserSync   from 'browser-sync-webpack-plugin';
+import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
+import poststylus from 'poststylus';
+import BrowserSync from 'browser-sync-webpack-plugin';
 import indexTemplate from 'html-webpack-template-pug';
-import HtmlPlugin    from 'html-webpack-plugin';
-import {index}       from './index.manifest';
+import HtmlPlugin from 'html-webpack-plugin';
+import CleanPlugin from 'clean-webpack-plugin';
+import CopyWebpack from 'copy-webpack-plugin';
+import CssExtractPlugin from 'mini-css-extract-plugin';
+import nodePath from 'path';
+import {index} from './index.manifest';
 
-let env = JSON.stringify(process.env.NODE_ENV)||'"production"';
+const mode = process.env.NODE_ENV==='production'?'production':'development',
+      path = nodePath.resolve(__dirname,'./dist');
 
 export default {
-  entry:{
-    app: ['./src/app/app.js'],
-    vendor: ['vue','vue-router','buefy']
-  },
+  mode,
+  watch: true,
+  entry: ['./src/app.js'],
   output:{
-    path: __dirname+'/dist',
+    path,
     publicPath: '/',
     sourceMapFilename: '[name].[chunkhash].map',
     filename:'[name].[chunkhash].js'
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin('vendor'),
+    new CleanPlugin(['*.js','*.map','*.css'],{root: path}),
+    new CopyWebpack([
+      {from:'src/assets',to:''}
+    ]),
     new webpack.optimize.UglifyJsPlugin({
       mangle: false,
       compress: {warnings: false},
       output: {comments: false},
       sourceMap: true
     }),
-    new webpack.DefinePlugin({'process.env': {NODE_ENV: env}}),
+    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(mode)}),
     new webpack.LoaderOptionsPlugin({
       options: {stylus: {use: [poststylus(['autoprefixer'])]}}
     }),
-    new HtmlPlugin({
-      inject: false,
-      template: indexTemplate,
-      mobile: true,
-      injectExtras: index,
-      title: '<%= name %>'
-    }),
+    new HtmlPlugin(index),
     new BrowserSync({
       host: 'localhost',
-      port: 4000,
       server: { baseDir: ['./dist'] }
+    }),
+    new CssExtractPlugin({
+      filename: '[name].[hash].css',
+      chucnkFilename: '[name].[chunkhash].css'
     })
   ],
   module:{
@@ -52,8 +56,8 @@ export default {
         use: ['babel-loader','eslint-loader'],
         exclude: /node_modules/
       },
-      {test: /\.css$/, use: ['style-loader','css-loader']},
-      {test: /\.styl$/, use: ['style-loader','css-loader','stylus-loader']},
+      {test: /\.css$/, use: [CssExtractPlugin.loader,'css-loader']},
+      {test: /\.styl$/, use: [CssExtractPlugin.loader,'css-loader','stylus-loader']},
       {test: /\.pug/, use: ['babel-loader','pug-loader']}
     ] //end rules
   } //end module
