@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-justice.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-justice) [![dependency Status](https://david-dm.org/NathanielInman/slush-justice/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-justice) [![devDependency Status](https://david-dm.org/NathanielInman/slush-justice/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-justice#info=devDependencies)
 
-Slush generator **JUSTICE** makes programming with ES6 modules easy!
+Slush generator **JUSTICE** makes getting started with VueJS easy!
 
 - **Vue** : *Modern SPA framework inspired by React and Angular*
 - **Buefy** : *Modern component library extension of Bulma*
@@ -53,17 +53,16 @@ project
 ├─ src
 │ ├─assets
 │ │ └─ (imgs/html/pdf/other go here)
-│ ├─app
-│ │ ├─routes
-│ │ │ ├─routeName1
-│ │ │ │ ├─ index.js (route index file)
-│ │ │ │ └─ routeName1UsageName.js
-│ │ │ └─routeName2
-│ │ │   ├─ index.js (route index file)
-│ │ │   └─ routeName2UsageName.js
-│ │ ├─ app.pug (main template framework)
-│ │ ├─ app.styl (main stylus file)
-│ │ └─ app.js (main vue instance)
+│ ├─routes
+│ │ ├─help
+│ │ │ ├─index.js (route index file)
+│ │ │ ├─helpIndex.js (page controller)
+│ │ │ └─helpIndex.pug (template file)
+│ │ └─example
+│ │   ├─ index.js (route index file)
+│ │   └─ exampleShow.js (page controller with embedded template)
+│ ├─ app.styl (main stylus file)
+│ └─ app.js (main vue instance)
 ├─ index.manifest.js (used to create index.html)
 ├─ package.json
 └─ readme.md
