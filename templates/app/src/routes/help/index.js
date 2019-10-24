@@ -1,8 +1,8 @@
-import {helpIndex} from './helpIndex';
+import HelpIndex from './HelpIndex.vue';
 
 export const helpRoute = [
   {
     path: '/help',
-    component: helpIndex
+    component: HelpIndex
   }
 ];

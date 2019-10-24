@@ -4,17 +4,14 @@
 
 Slush generator **JUSTICE** makes getting started with VueJS easy!
 
-- **Vue** : *Modern SPA framework inspired by React and Angular*
+- **Vue + VueRouter** : *Modern SPA framework inspired by React and Angular*
+- **Vue Hot Reload API** : *Live reloading system*
+- **Vuex** : *Flux data management. Multiple stores, single dispatcher, no clumsy reducers*
 - **Buefy** : *Modern component library extension of Bulma*
-- **BrowserSync** : *Live reloading system*
-- **Webpack** : *Project compilation, module bundler, uglifier, etc.*
-- **Modules** : *Use ES2015 modules with no additional configuration*
+- **Parcel** : *Project compilation, module bundler, uglifier, etc.*
 - **Babel** : *Modern JS to ES5 compiler formerly called 6to5*
-- **ESLint** : *Lint your javascript in its ES.Next format*
 - **Pug** : *Templating system made easy*
 - **Stylus** : *Powerful CSS Preprocessor with a beautiful syntax*
-- **PostCSS** : *Style optimizer used with autoprefixer*
-- **Uglify** : *Minify both CSS and JS to make your client payloads small and quick to load*
 
 ## Table of Contents
 
@@ -56,14 +53,13 @@ project
 │ ├─routes
 │ │ ├─help
 │ │ │ ├─index.js (route index file)
-│ │ │ ├─helpIndex.js (page controller)
-│ │ │ └─helpIndex.pug (template file)
-│ │ └─example
-│ │   ├─ index.js (route index file)
-│ │   └─ exampleShow.js (page controller with embedded template)
-│ ├─ app.styl (main stylus file)
-│ └─ app.js (main vue instance)
-├─ index.manifest.js (used to create index.html)
+│ │ │ └─HelpIndex.vue (help page controller)
+│ │ └─Dashboard.vue (landing page controller)
+│ ├─ routes.js (all route initialization)
+│ ├─ App.vue (the root vue page component)
+│ ├─ index.styl (app-wide stylus file)
+│ ├─ index.pug (app html file)
+│ └─ index.js (app initializaiton of vue instance)
 ├─ package.json
 └─ readme.md
 ```
@@ -76,8 +72,8 @@ those who actually put in all the hard work to create them.
 - There have been many [Slush][1] generators that have been instrumental in getting
   all those pesky apps developed on time. It's great to finally have an alternative
   to Yeoman.
-- [Webpack][8] has been an instrumental boost in productivity and clean code, allowing the
-  the use of the ES2015 module system.
+- [Parcel][8] has been an instrumental boost in productivity and clean code, allowing the
+  the use of the ES2015 module system. Moving from webpack has greatly improved speed
 - Though [Pug][2] (formerly Jade,) has been seen predominately as a server-side helper
   for templating, I find it incredibly helpful on front-end projects where I'm using a
   build system anyways, as the syntax is far easier to read and reduces duplication of
@@ -108,4 +104,4 @@ those who actually put in all the hard work to create them.
 [5]:https://github.com/postcss/autoprefixer
 [6]:http://eslint.org
 [7]:https://github.com/babel/babel
-[8]:https://webpack.github.io
+[8]:https://parceljs.org/

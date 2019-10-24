@@ -1,3 +1,4 @@
+<template lang="pug">
 main
   section.section
     .container
@@ -11,3 +12,17 @@ main
       pre npm install
       p That will install all of the dependencies, in order to start the project:
       pre npm start
+</template>
+<script>
+import Vuex from 'vuex';
+
+const {mapActions,mapGetters,mapMutations,mapState} = Vuex;
+
+// Prepare the main template
+export default {
+  name: 'HelpIndex',
+  computed: {
+    ...mapState('user',['name'])
+  }
+};
+</script>
