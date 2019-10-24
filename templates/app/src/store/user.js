@@ -2,7 +2,7 @@ export const store = {
   namespaced: true,
   state(){
     return {
-      name: '<%= name %>'
+      name: '<%= authorName %>'
     };
   },
   getters: {},
