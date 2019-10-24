@@ -24,7 +24,7 @@ const router = new VueRouter({routes});
 
 // initialize the application
 new Vue({
-  el: '#testProj',
+  el: 'app',
   router, store,
   render: h=> h(App)
 });
