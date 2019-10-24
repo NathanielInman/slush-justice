@@ -15,7 +15,8 @@
     "url": "https://github.com/<%= userName %>/<%= name %>/issues"
   },
   "scripts": {
-    "start": "NODE_ENV=development npx webpack-cli --config ./config.babel.js"
+    "prestart": "rm -rf ./parcel",
+    "start": "NODE_ENV=development ./node_modules/parcel/bin/cli.js ./src/index.pug -d dist --cache-dir .parcel"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
