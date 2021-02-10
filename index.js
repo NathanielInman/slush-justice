@@ -100,7 +100,6 @@ inquirer.prompt([{
         interpolate: /<%=\s([\s\S]+?)%>/g
       }))
       .pipe(rename(function (file) {
-        console.log('file',file);
         if (file.basename[0] === '_' && file.basename[1] === '_'){
           file.basename = file.basename.slice(1);
         } else if (file.basename[0] === '_') {
